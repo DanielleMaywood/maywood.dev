@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import List from "@components/List.astro";
+import Link from "@components/Link.astro";
+---
+
+<BaseLayout
+  title="Danielle Maywood"
+  subtitle="Studying Computer Science at Loughborough University"
+>
+  <List name="Skills">
+    <li>Rust, JavaScript, TypeScript, Python and WebAssembly</li>
+    <li>Docker and Terraform</li>
+  </List>
+
+  <List name="Projects">
+    <li>
+      <Link href="https://github.com/DanielleMaywood/glexer">Glexer</Link>
+       - Lexer for Gleam, written in Gleam
+    </li>
+  </List>
+</BaseLayout>

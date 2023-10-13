@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import List from "@components/List.astro";
+import Link from "@components/Link.astro";
+---
+
+<BaseLayout title="Contact Information" subtitle="Places you can find me at!">
+  <List name="Email">
+    <li><Link href="mailto:danielle@maywood.me">danielle@maywood.me</Link></li>
+  </List>
+
+  <List name="Social Media">
+    <li>
+      <Link href="https://hachyderm.io/@thisdanielle" rel="me">Fediverse</Link>
+    </li>
+    <li>
+      <Link href="https://staging.bsky.app/profile/danielle.maywood.dev">
+        Bluesky
+      </Link>
+    </li>
+    <li>
+      <Link href="https://discordapp.com/users/662291749280153602">
+        Discord
+      </Link>
+    </li>
+  </List>
+
+  <List name="Repository Hosting">
+    <li>
+      <Link href="https://github.com/DanielleMaywood">GitHub</Link>
+    </li>
+    <li>
+      <Link href="https://sr.ht/~danielle">SourceHut</Link>
+    </li>
+    <li>
+      <Link href="https://codeberg.org/Danielle">Codeberg</Link>
+    </li>
+  </List>
+</BaseLayout>
