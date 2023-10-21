@@ -16,6 +16,7 @@ export default {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     require("@catppuccin/tailwindcss")({
       prefix: "ctp",
     }),

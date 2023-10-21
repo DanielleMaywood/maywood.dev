@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import { format } from "date-fns";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import List from "@components/List.astro";
+import Link from "@components/Link.astro";
+
+const blogEntries = await getCollection("blog");
+---
+
+<BaseLayout title="Blog" subtitle="A collection of my rambling">
+  <List name="Posts">
+    {
+      blogEntries.map((blogEntry) => (
+        <li>
+          {format(blogEntry.data.published, "yyyy-MM-dd")} -{" "}
+          <Link href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</Link>
+        </li>
+      ))
+    }
+  </List>
+</BaseLayout>

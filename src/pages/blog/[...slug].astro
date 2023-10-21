@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { format } from "date-fns";
+
+export const getStaticPaths = (async () => {
+  return (await getCollection("blog")).map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout>
+  <article
+    class:list={[
+      "max-w-none",
+      "prose dark:prose-invert",
+      "prose-headings:mb-1 prose-headings:mt-4 prose-headings:text-ctp-pink",
+      "prose-h1:mt-0",
+      "prose-p:mb-2 prose-p:mt-1",
+    ]}
+  >
+    <h1>{entry.data.title}</h1>
+    <p class="italic">
+      Published on {format(entry.data.published, "yyyy-MM-dd")}
+    </p>
+
+    <Content frontmatter={entry.data} />
+  </article>
+</BaseLayout>
