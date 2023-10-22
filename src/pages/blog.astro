@@ -7,15 +7,33 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import List from "@components/List.astro";
 import Link from "@components/Link.astro";
 
-const blogEntries = await getCollection("blog");
+const publishedBlogEntries = await getCollection("blog", ({ data }) => {
+  return data.published;
+});
+
+const draftBlogEntries = await getCollection("blog", ({ data }) => {
+  return !data.published;
+});
 ---
 
 <BaseLayout title="Blog" subtitle="A collection of my rambling">
+  {
+    !import.meta.env.PROD && draftBlogEntries.length && (
+      <List name="Draft Blog Posts">
+        {draftBlogEntries.map((blogEntry) => (
+          <li>
+            <Link href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</Link>
+          </li>
+        ))}
+      </List>
+    )
+  }
+
   <List name="Posts">
     {
-      blogEntries.map((blogEntry) => (
+      publishedBlogEntries.map((blogEntry) => (
         <li>
-          {format(blogEntry.data.published, "yyyy-MM-dd")} -{" "}
+          {format(blogEntry.data.published!, "yyyy-MM-dd")} -{" "}
           <Link href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</Link>
         </li>
       ))

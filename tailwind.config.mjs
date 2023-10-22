@@ -11,7 +11,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["'IBM Plex Sans Condensed'", ...defaultTheme.fontFamily.sans],
+        sans: ["'IBM Plex Sans'", ...defaultTheme.fontFamily.sans],
+        mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
       },
     },
   },
