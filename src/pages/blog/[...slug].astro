@@ -6,7 +6,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { format } from "date-fns";
 
 export const getStaticPaths = (async () => {
-  return (await getCollection("blog")).map((entry) => ({
+  const blogEntries = await getCollection("blog", ({ data }) => {
+    if (import.meta.env.DEV) return true;
+
+    return data.published;
+  });
+
+  return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
