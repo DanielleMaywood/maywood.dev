@@ -1,8 +1,8 @@
 ---
 import Header from "@components/Header.astro";
 
-import "@fontsource/ibm-plex-sans";
 import "@fontsource/ibm-plex-mono";
+import "@fontsource/atkinson-hyperlegible";
 
 interface Props {
   title?: string;
@@ -20,14 +20,9 @@ const { title, subtitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <script
-      data-goatcounter="https://maywood.goatcounter.com/count"
-      async
-      src="//gc.zgo.at/count.js"
-    ></script>
   </head>
   <body
-    class="ctp-latte container mx-auto bg-ctp-base tracking-tighter text-ctp-text dark:ctp-mocha"
+    class="ctp-latte container mx-auto bg-ctp-base text-ctp-text dark:ctp-mocha"
   >
     <Header />
 
