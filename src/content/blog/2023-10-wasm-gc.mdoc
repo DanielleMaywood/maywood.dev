@@ -1,0 +1,135 @@
+---
+title: WebAssembly Garbage Collection
+---
+
+## What is WebAssembly?
+
+..
+
+## Why does it need a garbage collector?
+
+It doesn't need to, although there are definitely benefits to having one built
+into the runtime.
+
+The most obvious advantage is a smaller binary size.
+
+## So how do I use it?
+
+### Compiler/Assembler
+
+[Binaryen](https://github.com/WebAssembly/binaryen), version 116, has support 
+for [the latest opcodes](https://github.com/WebAssembly/binaryen/blob/ef8e424ac85a4d719233764f980a331842af6907/src/wasm-binary.h#L1166).
+It ships with a tool called `wasm-as`, which allows assembling WebAssembly from
+it's text format (Binaryen only supports the S-expr syntax) to the binary
+format.
+
+### Runtime
+
+At the time of writing, only [V8](https://bugs.chromium.org/p/v8/issues/detail?id=7748)
+and [SpiderMonkey](https://bugzilla.mozilla.org/show_bug.cgi?id=1774825) support
+the GC proposal. [WAMR](https://github.com/bytecodealliance/wasm-micro-runtime/tree/dev/gc_refactor)
+and [JavaScriptCore](https://bugs.webkit.org/show_bug.cgi?id=247394) are actively
+working on support for the proposal. [Wasmtime](https://github.com/bytecodealliance/wasmtime/issues/5032),
+[Wasmer](https://github.com/wasmerio/wasmer/issues/357), [Wasm3](https://github.com/wasm3/wasm3/issues/432)
+and [WasmEdge](https://github.com/WasmEdge/WasmEdge/issues/1122) all have issues
+raised but none appear to have a working implementation.
+
+This means you have to use either V8 or SpiderMonkey if you want to use the new
+GC proposal. You do need to be careful with the version of the runtime you use
+as the GC proposal changed the opcodes used to represent the added instructions.
+Deno `1.37.2` ships with V8 `11.8.172.13`, meaning that it 
+[supports the old set of opcodes](https://github.com/v8/v8/blob/8819014ca4ed0ad253e4fdcfa81d6a966df7f54a/src/wasm/wasm-opcodes.h#L691)
+instead of the [current set](https://github.com/v8/v8/blob/e303644b4108122444a22d0330fe970e3524c7d4/src/wasm/wasm-opcodes.h#L691).
+As far as I can tell, no major JavaScript (or WebAssembly) runtime uses a version
+of V8 with the updated opcodes. If you want to get started working with the GC
+proposal, you can either run your WebAssembly in a recent version of Chrome or 
+Firefox, or you can build V8's developer shell known as [d8](https://v8.dev/docs/d8).
+For now I would recommend using d8 until there is better support in other tools.
+
+Instead of repeating what has already been said, [you can follow the instructions](https://v8.dev/docs/build-gn)
+provided by Google.
+
+## Your first Wasm GC program
+
+### The code
+
+```wasm
+;; program.wat
+(module
+  (type $Point (struct
+    (field i32)
+    (field i32)
+  ))
+
+  (func $make-point (export "make-point")
+    (param $x i32) 
+    (param $y i32)
+    (result (ref $Point))
+
+    (struct.new $Point
+      (local.get $x)
+      (local.get $y)
+    )
+  )
+
+  (func $point-get-x (export "point-get-x") 
+    (param $point (ref $Point)) 
+    (result i32)
+
+    (struct.get $Point 0 (local.get $point))
+  )
+
+  (func $point-get-y (export "point-get-y")
+    (param $point (ref $Point)) 
+    (result i32)
+
+    (struct.get $Point 1 (local.get $point))
+  )
+
+  (func $add-points (export "add-points")
+    (param $lhs (ref $Point)) 
+    (param $rhs (ref $Point)) 
+    (result (ref $Point))
+
+    (call $make-point
+      (i32.add
+        (call $point-get-x (local.get $lhs))
+        (call $point-get-x (local.get $rhs))
+      )
+      (i32.add
+        (call $point-get-y (local.get $lhs))
+        (call $point-get-y (local.get $rhs))
+      )
+    )
+  )
+)
+```
+
+```js
+// program.js
+const wasmBinary = read("program.wasm", "binary");
+const wasmModule = new WebAssembly.Module(wasmBinary);
+const wasmInstance = new WebAssembly.Instance(wasmModule);
+
+const makePoint = wasmInstance.exports["make-point"];
+const pointGetX = wasmInstance.exports["point-get-x"];
+const pointGetY = wasmInstance.exports["point-get-y"];
+const addPoints = wasmInstance.exports["add-points"];
+
+const pointA = makePoint(1, 2);
+const pointB = makePoint(2, 4);
+const pointC = addPoints(pointA, pointB);
+
+print("X: " + pointGetX(pointC))
+print("Y: " + pointGetY(pointC))
+```
+
+## Extra
+
+As d8 doesn't package the built-in NodeJS modules, we need to make use of its
+own API to read a file. I can't find any documentation for this, however it's
+a fairly small utility so it wasn't difficult to find what I needed in the source.
+There is a [read file function](https://github.com/v8/v8/blob/e303644b4108122444a22d0330fe970e3524c7d4/src/d8/d8.cc#L2607)
+registered [here](https://github.com/v8/v8/blob/e303644b4108122444a22d0330fe970e3524c7d4/src/d8/d8.cc#L3363),
+that takes a file path and an optional file format. We want to read a WebAssembly
+binary so it makes sense to set this second argument to `"binary"`.

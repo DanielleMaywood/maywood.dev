@@ -18,6 +18,11 @@ const code = shiki.codeToHtml(content, {
     light: latte,
     dark: mocha,
   },
+  transforms: {
+    pre(node) {
+      node.properties.class += " border border-ctp-surface2 rounded-none";
+    },
+  },
 });
 ---
 
