@@ -11,7 +11,7 @@
     "format": "prettier --write . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.7.1",
+    "@astrojs/markdoc": "^0.7.2",
     "@astrojs/prefetch": "^0.4.1",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.2",
