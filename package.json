@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.2",
     "@catppuccin/tailwindcss": "^0.1.6",
-    "@fontsource/atkinson-hyperlegible": "^5.0.17",
+    "@fontsource-variable/inter": "^5.0.15",
     "@fontsource/ibm-plex-mono": "^5.0.8",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^3.5.3",
