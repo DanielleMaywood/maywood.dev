@@ -9,9 +9,9 @@ const { href } = Astro.props;
 
 <a
   class:list={[
-    "text-xl font-semibold underline decoration-2 underline-offset-2 hover:text-ctp-red",
+    "text-lg font-medium text-pink-800 decoration-2 underline-offset-4 hover:underline dark:text-pink-200",
     {
-      "text-ctp-pink": pathname === href,
+      underline: pathname === href,
     },
   ]}
   href={href}
