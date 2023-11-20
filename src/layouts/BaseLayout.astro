@@ -2,7 +2,7 @@
 import Header from "@components/Header.astro";
 
 import "@fontsource/ibm-plex-mono";
-import "@fontsource-variable/inter";
+import "@fontsource/ibm-plex-sans";
 
 interface Props {
   title?: string;
@@ -27,8 +27,8 @@ const { title, subtitle } = Astro.props;
     <Header />
 
     <main class="px-6 py-4">
-      {title && <h1 class="text-2xl font-semibold">{title}</h1>}
-      {subtitle && <h2 class="italic">{subtitle}</h2>}
+      {title && <h1 class="text-4xl font-semibold">{title}</h1>}
+      {subtitle && <h2 class="mt-2 italic">{subtitle}</h2>}
 
       <slot />
     </main>
