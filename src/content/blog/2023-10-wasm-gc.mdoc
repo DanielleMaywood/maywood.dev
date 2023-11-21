@@ -1,5 +1,6 @@
 ---
 title: WebAssembly Garbage Collection
+description: WebAssembly Garbage Collection
 ---
 
 ## What is WebAssembly?
@@ -37,17 +38,6 @@ raised but none appear to have a working implementation.
 This means you have to use either V8 or SpiderMonkey if you want to use the new
 GC proposal. You do need to be careful with the version of the runtime you use
 as the GC proposal changed the opcodes used to represent the added instructions.
-Deno `1.37.2` ships with V8 `11.8.172.13`, meaning that it 
-[supports the old set of opcodes](https://github.com/v8/v8/blob/8819014ca4ed0ad253e4fdcfa81d6a966df7f54a/src/wasm/wasm-opcodes.h#L691)
-instead of the [current set](https://github.com/v8/v8/blob/e303644b4108122444a22d0330fe970e3524c7d4/src/wasm/wasm-opcodes.h#L691).
-As far as I can tell, no major JavaScript (or WebAssembly) runtime uses a version
-of V8 with the updated opcodes. If you want to get started working with the GC
-proposal, you can either run your WebAssembly in a recent version of Chrome or 
-Firefox, or you can build V8's developer shell known as [d8](https://v8.dev/docs/d8).
-For now I would recommend using d8 until there is better support in other tools.
-
-Instead of repeating what has already been said, [you can follow the instructions](https://v8.dev/docs/build-gn)
-provided by Google.
 
 ## Your first Wasm GC program
 
@@ -123,13 +113,3 @@ const pointC = addPoints(pointA, pointB);
 print("X: " + pointGetX(pointC))
 print("Y: " + pointGetY(pointC))
 ```
-
-## Extra
-
-As d8 doesn't package the built-in NodeJS modules, we need to make use of its
-own API to read a file. I can't find any documentation for this, however it's
-a fairly small utility so it wasn't difficult to find what I needed in the source.
-There is a [read file function](https://github.com/v8/v8/blob/e303644b4108122444a22d0330fe970e3524c7d4/src/d8/d8.cc#L2607)
-registered [here](https://github.com/v8/v8/blob/e303644b4108122444a22d0330fe970e3524c7d4/src/d8/d8.cc#L3363),
-that takes a file path and an optional file format. We want to read a WebAssembly
-binary so it makes sense to set this second argument to `"binary"`.

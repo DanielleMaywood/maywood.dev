@@ -22,27 +22,25 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={entry.data.title}
+  subtitle={entry.data.published
+    ? `Published on ${format(entry.data.published, "yyyy-MM-dd")}`
+    : "Not yet published"}
+>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+  </Fragment>
+
   <article
     class:list={[
       "max-w-none",
       "prose dark:prose-invert",
-      "prose-headings:mb-1 prose-headings:mt-4 prose-headings:text-ctp-pink",
+      "prose-headings:mb-1 prose-headings:mt-4",
       "prose-h1:mt-0",
       "prose-p:mb-2 prose-p:mt-1",
     ]}
   >
-    <h1>{entry.data.title}</h1>
-    {
-      entry.data.published ? (
-        <p class="italic">
-          Published on {format(entry.data.published, "yyyy-MM-dd")}
-        </p>
-      ) : (
-        <p class="italic">Not yet published</p>
-      )
-    }
-
     <Content frontmatter={entry.data} />
   </article>
 </BaseLayout>
