@@ -15,7 +15,7 @@
     "@astrojs/prefetch": "^0.4.1",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/tailwind": "^5.0.3",
     "@catppuccin/tailwindcss": "^0.1.6",
     "@fontsource-variable/inter": "^5.0.15",
     "@fontsource/ibm-plex-mono": "^5.0.8",
