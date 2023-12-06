@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.8.0",
-    "@astrojs/rss": "^4.0.0",
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.3",
     "@catppuccin/tailwindcss": "^0.1.6",
