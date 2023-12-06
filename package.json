@@ -18,7 +18,7 @@
     "@catppuccin/tailwindcss": "^0.1.6",
     "@fontsource-variable/inter": "^5.0.15",
     "@fontsource/ibm-plex-mono": "^5.0.8",
-    "@fontsource/ibm-plex-sans": "^5.0.17",
+    "@fontsource/ibm-plex-sans": "^5.0.18",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^4.0.1",
     "astro-robots-txt": "^1.0.0",
