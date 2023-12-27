@@ -37,6 +37,11 @@ export default {
           padding: `${theme("spacing.3")} ${theme("spacing.4")}`,
           border: "4px solid black",
           boxShadow: "5px 5px #000"
+        },
+        '.box-lg': {
+          padding: `${theme("spacing.3")} ${theme("spacing.4")}`,
+          border: "4px solid black",
+          boxShadow: "8px 8px #000"
         }
       })
     })
