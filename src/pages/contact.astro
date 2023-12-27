@@ -6,11 +6,15 @@ import Link from "@components/Link.astro";
 ---
 
 <BaseLayout title="Contact Information" subtitle="Places you can find me at!">
-  <List name="Email">
-    <li><Link href="mailto:danielle@themaywoods.com">danielle@themaywoods.com</Link></li>
+  <List name="Email" class="box bg-neo-purple">
+    <li>
+      <Link href="mailto:danielle@themaywoods.com">
+        danielle@themaywoods.com
+      </Link>
+    </li>
   </List>
 
-  <List name="Social Media">
+  <List name="Social Media" class="box bg-neo-green">
     <li>
       <Link href="https://hachyderm.io/@thisdanielle" rel="me">Fediverse</Link>
     </li>
@@ -26,7 +30,7 @@ import Link from "@components/Link.astro";
     </li>
   </List>
 
-  <List name="Repository Hosting">
+  <List name="Repository Hosting" class="box bg-neo-blue">
     <li>
       <Link href="https://github.com/DanielleMaywood">GitHub</Link>
     </li>

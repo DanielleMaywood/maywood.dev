@@ -19,7 +19,7 @@ const draftBlogEntries = await getCollection("blog", ({ data }) => {
 <BaseLayout title="Blog" subtitle="A collection of my rambling">
   {
     !import.meta.env.PROD && draftBlogEntries.length && (
-      <List name="Draft Blog Posts">
+      <List name="Draft Blog Posts" class="box bg-neo-green">
         {draftBlogEntries.map((blogEntry) => (
           <li>
             <Link href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</Link>
@@ -29,7 +29,7 @@ const draftBlogEntries = await getCollection("blog", ({ data }) => {
     )
   }
 
-  <List name="Posts">
+  <List name="Posts" class="box bg-neo-purple">
     {
       publishedBlogEntries.map((blogEntry) => (
         <li>
