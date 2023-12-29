@@ -2,7 +2,7 @@
 import Header from "@components/Header.astro";
 
 import "@fontsource-variable/space-grotesk";
-import "@fontsource/ibm-plex-mono";
+import "@fontsource/ia-writer-mono";
 
 interface Props {
   title?: string;
@@ -25,7 +25,7 @@ const { title, subtitle } = Astro.props;
     </slot>
     <title>{title}</title>
   </head>
-  <body class="bg-neo-pink container mx-auto text-lg text-black">
+  <body class="container mx-auto bg-neo-pink text-lg text-black">
     <Header />
 
     <main class="px-4 py-4">

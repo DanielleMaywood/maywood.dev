@@ -18,6 +18,7 @@ export default {
           blue: "#69d2e7",
           green: "#90ee90",
           yellow: "#f4d730",
+          magenta: "#fcdfff",
         }
       },
       boxShadow: {
@@ -25,7 +26,7 @@ export default {
       },
       fontFamily: {
         sans: ["'Space Grotesk Variable'", ...defaultTheme.fontFamily.sans],
-        mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
+        mono: ["'iA Writer Mono'", ...defaultTheme.fontFamily.mono],
       },
     },
   },
