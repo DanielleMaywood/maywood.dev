@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/markdoc": "^0.8.2",
     "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "@catppuccin/tailwindcss": "^0.1.6",
     "@fontsource-variable/inter": "^5.0.16",
