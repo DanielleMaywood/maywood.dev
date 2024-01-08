@@ -20,7 +20,7 @@
     "@fontsource-variable/space-grotesk": "^5.0.16",
     "@fontsource/ia-writer-mono": "^5.0.7",
     "@tailwindcss/typography": "^0.5.10",
-    "astro": "^4.0.7",
+    "astro": "^4.1.1",
     "astro-robots-txt": "^1.0.0",
     "date-fns": "^2.30.0",
     "tailwindcss": "^3.4.0"
