@@ -17,19 +17,7 @@ const draftBlogEntries = await getCollection("blog", ({ data }) => {
 ---
 
 <BaseLayout title="Blog" subtitle="A collection of my rambling">
-  {
-    !import.meta.env.PROD && draftBlogEntries.length && (
-      <List name="Draft Blog Posts" class="box bg-neo-green">
-        {draftBlogEntries.map((blogEntry) => (
-          <li>
-            <Link href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</Link>
-          </li>
-        ))}
-      </List>
-    )
-  }
-
-  <List name="Posts" class="box bg-neo-purple">
+  <List name="Posts" class="box bg-neo-pastel-green">
     {
       publishedBlogEntries.map((blogEntry) => (
         <li>
@@ -39,4 +27,16 @@ const draftBlogEntries = await getCollection("blog", ({ data }) => {
       ))
     }
   </List>
+
+  {
+    !import.meta.env.PROD && draftBlogEntries.length && (
+      <List name="Draft Blog Posts" class="box bg-neo-anakiwa">
+        {draftBlogEntries.map((blogEntry) => (
+          <li>
+            <Link href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</Link>
+          </li>
+        ))}
+      </List>
+    )
+  }
 </BaseLayout>

@@ -13,16 +13,16 @@ export default {
     extend: {
       colors: {
         neo: {
-          pink: "#ff69b4",
-          purple: "#ffb2ef",
-          blue: "#69d2e7",
-          green: "#90ee90",
-          yellow: "#f4d730",
-          magenta: "#fcdfff",
-        }
+          mustard: "#ffdb58",
+          "cotton-candy": "#ffb2ef",
+          seagull: "#87ceeb",
+          "pastel-green": "#90ee90",
+          anakiwa: "#7df9ff",
+          "mona-lisa": "#ff9494",
+        },
       },
       boxShadow: {
-        solid: "5px 5px #000"
+        solid: "5px 5px #000",
       },
       fontFamily: {
         sans: ["'Space Grotesk Variable'", ...defaultTheme.fontFamily.sans],
@@ -34,17 +34,17 @@ export default {
     require("@tailwindcss/typography"),
     plugin(function ({ addComponents, theme }) {
       addComponents({
-        '.box': {
+        ".box": {
           padding: `${theme("spacing.3")} ${theme("spacing.4")}`,
           border: "4px solid black",
-          boxShadow: "5px 5px #000"
+          boxShadow: "5px 5px #000",
         },
-        '.box-lg': {
+        ".box-lg": {
           padding: `${theme("spacing.3")} ${theme("spacing.4")}`,
           border: "4px solid black",
-          boxShadow: "8px 8px #000"
-        }
-      })
-    })
+          boxShadow: "8px 8px #000",
+        },
+      });
+    }),
   ],
 };
