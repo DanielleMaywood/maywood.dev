@@ -19,6 +19,8 @@ export default {
           "pastel-green": "#90ee90",
           anakiwa: "#7df9ff",
           "mona-lisa": "#ff9494",
+          pink: "#f5a9b8",
+          blue: "#5bcefa",
         },
       },
       boxShadow: {

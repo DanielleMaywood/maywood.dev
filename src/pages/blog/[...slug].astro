@@ -30,11 +30,11 @@ const { Content } = await entry.render();
   <article
     class:list={[
       "box max-w-none",
-      "prose bg-neo-mustard text-black",
+      "bg-neo-blue prose text-black selection:bg-neo-pink",
       "prose-headings:mb-2 prose-headings:mt-0",
       "prose-h1:mt-0",
       "prose-p:mb-4 prose-p:mt-1",
-      "prose-pre:bg-neo-magenta prose-pre:box prose-pre:rounded-none prose-pre:font-semibold prose-pre:text-black",
+      "selection:prose-pre:bg-neo-blue prose-pre:box prose-pre:rounded-none prose-pre:bg-neo-pink prose-pre:text-black",
     ]}
   >
     <h1>{entry.data.title}</h1>
