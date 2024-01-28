@@ -5,19 +5,15 @@ import List from "@components/List.astro";
 import Link from "@components/Link.astro";
 ---
 
-<BaseLayout
-  title="Danielle Maywood"
-  subtitle="Computer Science Student at Loughborough University"
->
-  <List name="Skills" class="selection:bg-neo-blue box bg-neo-pink">
-    <li>Rust, JavaScript, TypeScript, Python and WebAssembly</li>
-    <li>Docker and Terraform</li>
-  </List>
+<BaseLayout>
+  <p class="text-xl">
+    Computer Science student at Loughborough University.
+  </p>
 
-  <List name="Projects" class="bg-neo-blue box selection:bg-neo-pink">
+  <List name="Projects">
     <li>
       <Link href="https://github.com/DanielleMaywood/glexer">Glexer</Link>
-       - Lexer for Gleam, written in Gleam
+      - Lexer for Gleam, written in Gleam.
     </li>
   </List>
 </BaseLayout>

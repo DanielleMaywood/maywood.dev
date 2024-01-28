@@ -1,9 +1,6 @@
 ---
 import Header from "@components/Header.astro";
 
-import "@fontsource-variable/space-grotesk";
-import "@fontsource/ia-writer-mono";
-
 interface Props {
   title?: string;
   subtitle?: string;
@@ -25,19 +22,12 @@ const { title, subtitle } = Astro.props;
     </slot>
     <title>{title}</title>
   </head>
-  <body class="container mx-auto bg-neo-pink/75 text-lg text-black">
+  <body
+    class="container mx-auto bg-trans-pink/15 text-trans-black dark:bg-trans-black dark:text-trans-white px-2"
+  >
     <Header />
 
-    <main class="px-4 py-4">
-      {
-        (title || subtitle) && (
-          <section class="bg-neo-blue box selection:bg-neo-pink">
-            {title && <h1 class="text-4xl font-bold">{title}</h1>}
-            {subtitle && <h2 class="mt-2 italic">{subtitle}</h2>}
-          </section>
-        )
-      }
-
+    <main class="space-y-4 py-4">
       <slot />
     </main>
   </body>

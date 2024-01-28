@@ -16,8 +16,8 @@ const draftBlogEntries = await getCollection("blog", ({ data }) => {
 });
 ---
 
-<BaseLayout title="Blog" subtitle="A collection of my rambling">
-  <List name="Posts" class="selection:bg-neo-blue box bg-neo-pink">
+<BaseLayout>
+  <List name="Posts" class="">
     {
       publishedBlogEntries.map((blogEntry) => (
         <li>
@@ -30,10 +30,7 @@ const draftBlogEntries = await getCollection("blog", ({ data }) => {
 
   {
     !import.meta.env.PROD && draftBlogEntries.length && (
-      <List
-        name="Draft Blog Posts"
-        class="bg-neo-blue box selection:bg-neo-pink"
-      >
+      <List name="Draft Blog Posts" class="">
         {draftBlogEntries.map((blogEntry) => (
           <li>
             <Link href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</Link>

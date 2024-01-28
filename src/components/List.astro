@@ -1,15 +1,14 @@
 ---
 interface Props {
-  class?: string;
   name: string;
 }
 
-const { name, class: klass } = Astro.props;
+const { name } = Astro.props;
 ---
 
-<section class=`mt-4 ${klass}`>
-  <h3 class="text-2xl font-semibold leading-8">{name}</h3>
-  <ul class="ml-5 mt-1 list-disc">
+<section>
+  <h3 class="text-2xl font-semibold dark:text-trans-blue">{name}</h3>
+  <ul class="ml-5 mt-1 list-disc space-y-1 text-lg">
     <slot />
   </ul>
 </section>

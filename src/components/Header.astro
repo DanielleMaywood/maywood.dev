@@ -4,21 +4,19 @@ import HeaderLink from "./HeaderLink.astro";
 const links = [
   {
     href: "/",
-    name: "Home",
+    name: "About",
   },
   {
     href: "/contact/",
     name: "Contact",
   },
-  {
-    href: "/blog/",
-    name: "Blog",
-  },
 ];
 ---
 
-<header class="mx-2 my-4 pt-4">
-  <nav>
+<header class="my-4 flex justify-between pt-4">
+  <h1 class="text-4xl font-bold dark:text-trans-pink">Danielle Maywood</h1>
+
+  <nav class="my-auto">
     <ul class="flex flex-row justify-center gap-4 md:justify-start">
       {
         links.map(({ href, name }) => (
