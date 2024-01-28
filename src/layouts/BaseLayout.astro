@@ -3,10 +3,9 @@ import Header from "@components/Header.astro";
 
 interface Props {
   title?: string;
-  subtitle?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,7 +19,7 @@ const { title, subtitle } = Astro.props;
     <slot name="head">
       <meta property="og:type" content="website" />
     </slot>
-    <title>{title}</title>
+    <title>Danielle - {title}</title>
   </head>
   <body
     class="container mx-auto bg-trans-pink/15 text-trans-black dark:bg-trans-black dark:text-trans-white px-2"
