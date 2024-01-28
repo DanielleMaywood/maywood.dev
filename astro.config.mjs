@@ -38,7 +38,7 @@ export default defineConfig({
           // https://darkvisitors.com/agents/bytespider
           userAgent: "Bytespider",
           disallow: "/",
-        }
+        },
         {
           // AI Data Scraper
           // https://darkvisitors.com/agents/ccbot
