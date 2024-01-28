@@ -16,64 +16,56 @@ export default defineConfig({
     robotsTxt({
       policy: [
         {
-          // # AI Assistant
-          // # https://darkvisitors.com/agents/chatgpt-user
+          // AI Assistant
+          // https://darkvisitors.com/agents/chatgpt-user
           userAgent: "ChatGPT-User",
           disallow: "/",
         },
-
         {
-          // # AI Assistant
-          // # https://darkvisitors.com/agents/cohere-ai
+          // AI Assistant
+          // https://darkvisitors.com/agents/cohere-ai
           userAgent: "cohere-ai",
           disallow: "/",
         },
-
         {
-          // # AI Data Scraper
-          // # https://darkvisitors.com/agents/anthropic-ai
+          // AI Data Scraper
+          // https://darkvisitors.com/agents/anthropic-ai
           userAgent: "anthropic-ai",
           disallow: "/",
         },
-
         {
-          // # AI Data Scraper
-          // # https://darkvisitors.com/agents/ccbot
+          // AI Data Scraper
+          // https://darkvisitors.com/agents/bytespider
+          userAgent: "Bytespider",
+          disallow: "/",
+        }
+        {
+          // AI Data Scraper
+          // https://darkvisitors.com/agents/ccbot
           userAgent: "CCBot",
           disallow: "/",
         },
-
         {
-          // # AI Data Scraper
-          // # https://darkvisitors.com/agents/facebookbot
+          // AI Data Scraper
+          // https://darkvisitors.com/agents/facebookbot
           userAgent: "FacebookBot",
           disallow: "/",
         },
-
         {
-          // # AI Data Scraper
-          // # https://darkvisitors.com/agents/google-extended
+          // AI Data Scraper
+          // https://darkvisitors.com/agents/google-extended
           userAgent: "Google-Extended",
           disallow: "/",
         },
-
         {
-          // # AI Data Scraper
-          // # https://darkvisitors.com/agents/gptbot
+          // AI Data Scraper
+          // https://darkvisitors.com/agents/gptbot
           userAgent: "GPTBot",
           disallow: "/",
         },
-
         {
-          // # AI Data Scraper
-          // # https://darkvisitors.com/agents/omgilibot
-          userAgent: "omgilibot",
-          disallow: "/",
-        },
-
-        {
-          // # AI Data Scraper
-          // # https://darkvisitors.com/agents/omgilibot
+          // AI Data Scraper
+          // https://darkvisitors.com/agents/omgilibot
           userAgent: "omgili",
           disallow: "/",
         },
