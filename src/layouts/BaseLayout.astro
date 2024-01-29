@@ -22,11 +22,11 @@ const { title } = Astro.props;
     <title>Danielle - {title}</title>
   </head>
   <body
-    class="container mx-auto bg-trans-pink/15 text-trans-black dark:bg-trans-black dark:text-trans-white px-2"
+    class="container mx-auto bg-trans-pink/15 px-2 text-trans-black dark:bg-trans-black dark:text-trans-white"
   >
     <Header />
 
-    <main class="space-y-4 py-4">
+    <main class="space-y-4">
       <slot />
     </main>
   </body>
