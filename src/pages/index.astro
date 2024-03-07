@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Link from "../components/Link.astro";
+---
+
+<BaseLayout title="Danielle Maywood">
+  <h1 class="text-4xl font-bold">Danielle Maywood</h1>
+  <p class="mt-4 text-lg">
+    Computer Science student at Loughborough University
+  </p>
+
+  <h3 class="mt-4 text-2xl font-bold">Projects</h3>
+  <ul class="text-lg list-disc ml-4 mt-2">
+    <li>
+      <Link href="https://github.com/DanielleMaywood/glexer">Glexer</Link> - Lexer
+      for the Gleam programming language, written in Gleam.
+    </li>
+  </ul>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  rel?: string;
+}
+---
+
+<a
+  class="inline-block underline underline-offset-4 decoration-2 hover:decoration-4 focus:outline-none focus:decoration-4"
+  href={Astro.props.href}
+  rel={Astro.props.rel}
+>
+  <slot />
+</a>

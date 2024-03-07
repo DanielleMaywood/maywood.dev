@@ -1,0 +1,22 @@
+---
+import Link from "./Link.astro";
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<header class="text-lg font-semibold">
+  <nav>
+    <ul class="flex justify-end gap-8">
+      {
+        links.map(({ href, name }) => (
+          <li>
+            <Link href={href}>{name}</Link>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
