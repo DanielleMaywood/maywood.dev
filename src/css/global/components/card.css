@@ -1,0 +1,6 @@
+.card {
+  background-color: var(--surface-3);
+  padding-inline: var(--space-xs);
+  padding-block: var(--space-2xs);
+  border-inline-start: 4px solid var(--accent);
+}

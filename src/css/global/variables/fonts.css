@@ -1,0 +1,4 @@
+:root {
+  --font-system-ui:  system-ui, sans-serif;
+  --font-monospace: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+}

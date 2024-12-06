@@ -1,0 +1,4 @@
+.prose {
+  --container-max-width: 70ch;
+  --gutter: var(--space-s);
+}

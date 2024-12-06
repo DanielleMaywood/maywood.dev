@@ -1,0 +1,83 @@
+body {
+  background: var(--surface-1);
+  color: var(--text-1);
+  font-size: var(--size-1);
+  font-family: var(--font-system-ui);
+  margin: 0;
+}
+
+:is(h1, h2, h3, h4) {
+  line-height: var(--leading-fine);
+}
+
+h1 {
+  font-size: var(--size-4);
+}
+
+h2 {
+  font-size: var(--size-3);
+}
+
+h3 {
+  font-size: var(--size-2);
+}
+
+:is(h4, h5, h6) {
+  font-size: var(--size-1);
+}
+
+article {
+  padding-block-start: var(--space-s);
+}
+
+hr {
+  border: 1px solid var(--surface-4);
+}
+
+/**
+ * Blockquote
+ **/
+
+figure:has(blockquote) {
+  padding-inline-start: var(--space-s);
+  padding-block: var(--space-2xs);
+  margin-inline: 0;
+  border-inline-start: 4px solid var(--accent);
+  background-color: var(--surface-3);
+}
+
+figure:has(blockquote) blockquote {
+  margin-inline-start: 0;
+  margin-block: 0;
+  padding-block: var(--space-2xs);
+}
+
+figure:has(blockquote) figcaption::before {
+  content: "\2014";
+}
+
+/**
+ * List
+ **/
+
+figure:has(ul) {
+  margin-inline-start: 0;
+}
+
+figure:has(ul) ul {
+  margin-block-start: var(--space-3xs);
+  padding-inline-start: 1.7ch;
+  list-style-type: disc;
+}
+
+figure:has(ul) ul ::marker {
+  font-size: 0.8lh;
+}
+
+figure:has(ul) ul > li {
+  padding-inline-start: var(--space-xs);
+}
+
+figure:has(ul) ul[data-list-bare] > li {
+  padding-inline-start: 0;
+}

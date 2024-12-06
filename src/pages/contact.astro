@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Link from "../components/Link.astro";
+
+import { Icon } from "astro-icon/components";
+
+const contacts = [
+  {
+    icon: "migadu",
+    name: "Email",
+    show: "danielle@themaywoods.com",
+    link: "mailto:danielle@themaywoods.com",
+  },
+  {
+    icon: "mastodon",
+    name: "Mastodon",
+    show: "hachyderm.io/@thisdanielle",
+    link: "https://hachyderm.io/@thisdanielle",
+  },
+  {
+    icon: "bluesky",
+    name: "Bluesky",
+    show: "daniellemaywood.uk",
+    link: "https://bsky.app/profile/daniellemaywood.uk",
+  },
+  {
+    icon: "discord",
+    name: "Discord",
+    show: "this.danielle",
+    link: "https://discord.com/users/662291749280153602",
+  },
+  {
+    icon: "github",
+    name: "GitHub",
+    show: "DanielleMaywood",
+    link: "https://github.com/DanielleMaywood",
+  },
+  {
+    icon: "sourcehut",
+    name: "SourceHut",
+    show: "~danielle",
+    link: "https://sr.ht/~danielle/",
+  },
+  {
+    icon: "codeberg",
+    name: "Codeberg",
+    show: "Danielle",
+    link: "https://codeberg.org/Danielle",
+  },
+];
+---
+
+<BaseLayout title="Contact">
+  <article class="prose container flow">
+    <Header />
+
+    <hr />
+
+    <h2>My contact information</h2>
+
+    {
+      contacts.map(({ icon, name, show, link }) => (
+        <div class="card repel">
+          <p class="cluster" style="--gutter: var(--space-2xs)">
+            <Icon name={icon} data-card-icon />
+            <strong>{name}</strong>
+          </p>
+          <p>
+            <Link href={link}>{show}</Link>
+          </p>
+        </div>
+      ))
+    }
+  </article>
+</BaseLayout>

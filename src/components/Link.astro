@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const currentUrl = ((): URL | undefined => {
+  const href = Astro.props.href;
+
+  switch (true) {
+    case href instanceof URL:
+      return href;
+
+    case typeof href === "string" || href instanceof String:
+      return new URL(href, Astro.url.href);
+
+    default:
+      return undefined;
+  }
+})();
+
+const isCurrent = currentUrl?.href === Astro.url.href;
+---
+
+<a aria-current={isCurrent ? "page" : undefined} {...Astro.props}><slot /></a>
