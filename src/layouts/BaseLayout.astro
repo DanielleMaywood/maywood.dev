@@ -1,5 +1,11 @@
 ---
-import "../css/global.css";
+import "../css/reset.css";
+import "../css/variables.css";
+import "../css/theme.css";
+import "../css/styles.css";
+import "../css/components.css";
+
+import Header from "../components/Header.astro";
 
 type Props = {
   title?: string;
@@ -17,7 +23,11 @@ const name = "Danielle Maywood's Blog";
     <meta name="generator" content={Astro.generator} />
     <title>{title ? `${title} | ${name}` : name}</title>
   </head>
-  <body>
-    <slot />
+  <body class="prose container flow">
+    <Header />
+    <hr />
+    <main class="flow">
+      <slot />
+    </main>
   </body>
 </html>

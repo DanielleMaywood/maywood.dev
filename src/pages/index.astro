@@ -17,35 +17,34 @@ const projects = [
 ---
 
 <BaseLayout>
-  <article class="prose container flow">
-    <Header />
+  <figure>
+    <blockquote>
+      Everyone knows that debugging is twice as hard as writing a program in the
+      first place. So if you're as clever as you can be when you write it, how
+      will you ever debug it?
+    </blockquote>
+    <figcaption>
+      Brian Kernighan, <cite>The Elements of Programming Style</cite>
+    </figcaption>
+  </figure>
 
-    <hr />
+  <p>
+    Hey, I'm Danielle, a Software Engineer @
+    <a href="https://coder.com">Coder</a>.
+  </p>
 
-    <figure>
-      <blockquote>
-        Everyone knows that debugging is twice as hard as writing a program in
-        the first place. So if you're as clever as you can be when you write it,
-        how will you ever debug it?
-      </blockquote>
-      <figcaption>
-        Brian Kernighan, <cite>The Elements of Programming Style</cite>
-      </figcaption>
-    </figure>
+  <h2>My projects</h2>
 
-    <p>
-      Hey, I'm Danielle, a Software Engineer @
-      <a href="https://coder.com">Coder</a>.
-    </p>
-
-    <h2>My projects</h2>
-
-    {
-      projects.map((project) => (
-        <p class="card">
-          <a href={project.link}>{project.name}</a> - {project.desc}
+  {
+    projects.map((project) => (
+      <div class="card repel">
+        <p>
+          <strong>
+            <a href={project.link}>{project.name}</a>
+          </strong>
         </p>
-      ))
-    }
-  </article>
+        <p>{project.desc}</p>
+      </div>
+    ))
+  }
 </BaseLayout>

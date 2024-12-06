@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const hardware = [
+  {
+    name: "iPhone 12",
+    desc: "My personal phone",
+  },
+  {
+    name: `14" M3 MacBook Pro`,
+    desc: "For personal use",
+  },
+  {
+    name: `14" M3 MacBook Pro`,
+    desc: "For work use",
+  },
+  {
+    name: "Elgato Wave Neo",
+    desc: "Microphone",
+  },
+  {
+    name: "Audio-Technica ATH-M40x",
+    desc: "Headphones",
+  },
+];
+
+const software = [
+  {
+    name: "Apple's Mail.app",
+    desc: "Mail client",
+  },
+  {
+    name: "Ghostty",
+    desc: "Terminal emulator",
+  },
+  {
+    name: "Zed",
+    desc: "Code editor",
+  },
+];
+---
+
+<BaseLayout title="Now">
+  <h2>What I use...</h2>
+
+  <h3>Hardware</h3>
+
+  {
+    hardware.map((item) => (
+      <div class="card repel">
+        <p>
+          <strong>{item.name}</strong>
+        </p>
+        <p>{item.desc}</p>
+      </div>
+    ))
+  }
+
+  <h3>Software</h3>
+
+  {
+    software.map((item) => (
+      <div class="card repel">
+        <p>
+          <strong>{item.name}</strong>
+        </p>
+        <p>{item.desc}</p>
+      </div>
+    ))
+  }
+</BaseLayout>

@@ -1,22 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Link from "../components/Link.astro";
-import Header from "../components/Header.astro";
 ---
 
 <BaseLayout title="Dissertation">
-  <article class="prose container flow">
-    <Header />
+  <p class="center">
+    Want to view my dissertation on writing a WebAssembly compile target for
+    Gleam?
+  </p>
 
-    <hr />
-
-    <p class="center">
-      Want to view my dissertation on writing a WebAssembly compile target for
-      Gleam?
-    </p>
-
-    <p class="center">
-      <Link href="/dissertation.pdf">You can download it here.</Link>
-    </p>
-  </article>
+  <p class="center">
+    <Link href="/dissertation.pdf">You can download it here.</Link>
+  </p>
 </BaseLayout>

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
 import Link from "../components/Link.astro";
 
 import { Icon } from "astro-icon/components";
@@ -52,25 +51,19 @@ const contacts = [
 ---
 
 <BaseLayout title="Contact">
-  <article class="prose container flow">
-    <Header />
+  <h2>My contact information</h2>
 
-    <hr />
-
-    <h2>My contact information</h2>
-
-    {
-      contacts.map(({ icon, name, show, link }) => (
-        <div class="card repel">
-          <p class="cluster" style="--gutter: var(--space-2xs)">
-            <Icon name={icon} data-card-icon />
-            <strong>{name}</strong>
-          </p>
-          <p>
-            <Link href={link}>{show}</Link>
-          </p>
-        </div>
-      ))
-    }
-  </article>
+  {
+    contacts.map(({ icon, name, show, link }) => (
+      <div class="card repel">
+        <p class="cluster" style="--gutter: var(--space-2xs)">
+          <Icon name={icon} data-card-icon />
+          <strong>{name}</strong>
+        </p>
+        <p>
+          <Link href={link}>{show}</Link>
+        </p>
+      </div>
+    ))
+  }
 </BaseLayout>

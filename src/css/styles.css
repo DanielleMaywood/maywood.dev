@@ -26,7 +26,7 @@ h3 {
   font-size: var(--size-1);
 }
 
-article {
+header {
   padding-block-start: var(--space-s);
 }
 
