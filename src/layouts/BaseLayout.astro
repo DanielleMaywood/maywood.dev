@@ -6,12 +6,13 @@ import "../css/styles.css";
 import "../css/components.css";
 
 import Header from "../components/Header.astro";
+import type { HTMLAttributes } from "astro/types";
 
-type Props = {
+type Props = HTMLAttributes<"main"> & {
   title?: string;
 };
 
-const { title } = Astro.props;
+const { title, ...props } = Astro.props;
 const name = "Danielle Maywood's Blog";
 ---
 
@@ -27,7 +28,7 @@ const name = "Danielle Maywood's Blog";
   <body class="prose container flow">
     <Header />
     <hr />
-    <main class="flow">
+    <main class="flow" {...props}>
       <slot />
     </main>
   </body>

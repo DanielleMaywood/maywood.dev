@@ -61,13 +61,13 @@ figure:has(blockquote) figcaption::before {
  **/
 
 figure:has(ul) {
-  margin-inline-start: 0;
+  margin-inline: 0;
 }
 
 figure:has(ul) ul {
+  padding-inline-start: 0;
   margin-block-start: var(--space-3xs);
-  padding-inline-start: 1.7ch;
-  list-style-type: disc;
+  margin-inline: 0;
 }
 
 figure:has(ul) ul ::marker {
