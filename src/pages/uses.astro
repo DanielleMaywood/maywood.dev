@@ -51,6 +51,29 @@ const software = [
     name: "Zed",
     desc: "Code editor",
   },
+  {
+    icon: "1password",
+    name: "1Password",
+    desc: "Password manager",
+  },
+];
+
+const cloud = [
+  {
+    icon: "cloudflare",
+    name: "Cloudflare",
+    desc: "Static site hosting",
+  },
+  {
+    icon: "porkbun",
+    name: "Porkbun",
+    desc: "Domain registrar",
+  },
+  {
+    icon: "migadu",
+    name: "Migadu",
+    desc: "Mail server",
+  },
 ];
 ---
 
@@ -75,6 +98,20 @@ const software = [
 
   {
     software.map((item) => (
+      <div class="card repel">
+        <p class="cluster" style="--gutter: var(--space-2xs)">
+          <Icon name={item.icon} data-card-icon />
+          <strong>{item.name}</strong>
+        </p>
+        <p>{item.desc}</p>
+      </div>
+    ))
+  }
+
+  <h3>Cloud</h3>
+
+  {
+    cloud.map((item) => (
       <div class="card repel">
         <p class="cluster" style="--gutter: var(--space-2xs)">
           <Icon name={item.icon} data-card-icon />
