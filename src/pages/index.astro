@@ -17,7 +17,7 @@ const projects = [
 ---
 
 <BaseLayout>
-  <figure>
+  <figure class="flow">
     <blockquote>
       Everyone knows that debugging is twice as hard as writing a program in the
       first place. So if you're as clever as you can be when you write it, how
@@ -28,23 +28,24 @@ const projects = [
     </figcaption>
   </figure>
 
-  <p>
-    Hey, I'm Danielle, a Software Engineer @
-    <a href="https://coder.com">Coder</a>.
-  </p>
+  <figure class="flow">
+    <figcaption>
+      <h2>My projects</h2>
+    </figcaption>
 
-  <h2>My projects</h2>
-
-  {
-    projects.map((project) => (
-      <div class="card repel">
-        <p>
-          <strong>
-            <a href={project.link}>{project.name}</a>
-          </strong>
-        </p>
-        <p>{project.desc}</p>
-      </div>
-    ))
-  }
+    <ul class="flow">
+      {
+        projects.map((project) => (
+          <li class="card repel">
+            <p>
+              <a href={project.link}>{project.name}</a>
+            </p>
+            <p>
+              <em>{project.desc}</em>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </figure>
 </BaseLayout>

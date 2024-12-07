@@ -77,10 +77,10 @@ const cloud = [
 ];
 ---
 
-<BaseLayout title="Uses" style="--flow-space: var(--space-m)">
+<BaseLayout title="Uses">
   <h2>What I use...</h2>
 
-  <figure class="flow" style="--flow-space: var(--space-s)">
+  <figure class="flow">
     <figcaption>
       <h3 class="cluster" style="--gutter: var(--space-2xs)">
         <Icon aria-hidden name="ph:laptop" />
@@ -88,22 +88,24 @@ const cloud = [
       </h3>
     </figcaption>
 
-    <ul class="flow" style="--flow-space: var(--space-2xs)">
+    <ul class="flow">
       {
         hardware.map((item) => (
           <li class="card repel">
             <p class="cluster" style="--gutter: var(--space-2xs)">
               <Icon aria-hidden name={item.icon} />
-              <strong>{item.name}</strong>
+              {item.name}
             </p>
-            <p>{item.desc}</p>
+            <p>
+              <em>{item.desc}</em>
+            </p>
           </li>
         ))
       }
     </ul>
   </figure>
 
-  <figure class="flow" style="--flow-space: var(--space-s)">
+  <figure class="flow">
     <figcaption>
       <h3 class="cluster" style="--gutter: var(--space-2xs)">
         <Icon aria-hidden name="ph:app-window" />
@@ -111,22 +113,24 @@ const cloud = [
       </h3>
     </figcaption>
 
-    <ul class="flow" style="--flow-space: var(--space-2xs)">
+    <ul class="flow">
       {
         software.map((item) => (
           <li class="card repel">
             <p class="cluster" style="--gutter: var(--space-2xs)">
               <Icon aria-hidden name={item.icon} />
-              <strong>{item.name}</strong>
+              {item.name}
             </p>
-            <p>{item.desc}</p>
+            <p>
+              <em>{item.desc}</em>
+            </p>
           </li>
         ))
       }
     </ul>
   </figure>
 
-  <figure class="flow" style="--flow-space: var(--space-s)">
+  <figure class="flow">
     <figcaption>
       <h3 class="cluster" style="--gutter: var(--space-2xs)">
         <Icon aria-hidden name="ph:cloud" />
@@ -134,15 +138,18 @@ const cloud = [
       </h3>
     </figcaption>
 
-    <ul class="flow" style="--flow-space: var(--space-2xs)">
+    <ul class="flow">
       {
         cloud.map((item) => (
           <li class="card repel">
             <p class="cluster" style="--gutter: var(--space-2xs)">
               <Icon name={item.icon} />
-              <strong>{item.name}</strong>
+              {item.name}
             </p>
-            <p>{item.desc}</p>
+
+            <p>
+              <em>{item.desc}</em>
+            </p>
           </li>
         ))
       }

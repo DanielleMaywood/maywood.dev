@@ -34,6 +34,10 @@ hr {
   border: 1px solid var(--surface-4);
 }
 
+main > * {
+  --flow-space: var(--space-m);
+}
+
 /**
  * Blockquote
  **/
@@ -43,13 +47,17 @@ figure:has(blockquote) {
   padding-block: var(--space-2xs);
   margin-inline: 0;
   border-inline-start: 4px solid var(--accent);
-  background-color: var(--surface-3);
+  background-color: var(--surface-2);
+}
+
+figure:has(blockquote) > * {
+  --flow-space: var(--space-xs);
 }
 
 figure:has(blockquote) blockquote {
   margin-inline-start: 0;
-  margin-block: 0;
-  padding-block: var(--space-2xs);
+  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 figure:has(blockquote) figcaption::before {
@@ -64,18 +72,18 @@ figure:has(ul) {
   margin-inline: 0;
 }
 
+figure:has(ul) > * {
+  --flow-space: var(--space-xs);
+}
+
 figure:has(ul) ul {
-  padding-inline-start: 0;
+  padding-inline-start: var(--space-s);
   margin-block-start: var(--space-3xs);
-  margin-inline: 0;
+  margin-inline-start: 0;
 }
 
 figure:has(ul) ul ::marker {
   font-size: 0.8lh;
-}
-
-figure:has(ul) ul > li {
-  padding-inline-start: var(--space-xs);
 }
 
 figure:has(ul) ul[data-list-bare] > li {

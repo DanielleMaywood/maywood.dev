@@ -51,19 +51,27 @@ const contacts = [
 ---
 
 <BaseLayout title="Contact">
-  <h2>My contact information</h2>
+  <figure class="flow">
+    <figcaption>
+      <h2>My contact information</h2>
+    </figcaption>
 
-  {
-    contacts.map(({ icon, name, show, link }) => (
-      <div class="card repel">
-        <p class="cluster" style="--gutter: var(--space-2xs)">
-          <Icon name={icon} data-card-icon />
-          <strong>{name}</strong>
-        </p>
-        <p>
-          <Link href={link}>{show}</Link>
-        </p>
-      </div>
-    ))
-  }
+    <ul class="flow">
+      {
+        contacts.map(({ icon, name, show, link }) => (
+          <li class="card repel">
+            <p class="cluster" style="--gutter: var(--space-2xs)">
+              <Icon name={icon} data-card-icon />
+              {name}
+            </p>
+            <p>
+              <em>
+                <Link href={link}>{show}</Link>
+              </em>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </figure>
 </BaseLayout>
