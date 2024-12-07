@@ -1,24 +1,35 @@
 ---
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const hardware = [
   {
+    icon: "apple",
     name: "iPhone 12",
-    desc: "My personal phone",
+    desc: "Personal phone",
   },
   {
+    icon: "apple",
     name: `14" M3 MacBook Pro`,
-    desc: "For personal use",
+    desc: "Personal laptop",
   },
   {
+    icon: "apple",
     name: `14" M3 MacBook Pro`,
-    desc: "For work use",
+    desc: "Work laptop",
   },
   {
+    icon: "raspberrypi",
+    name: "Raspberry Pi 5",
+    desc: "Home server",
+  },
+  {
+    icon: "elgato",
     name: "Elgato Wave Neo",
     desc: "Microphone",
   },
   {
+    icon: "audiotechnica",
     name: "Audio-Technica ATH-M40x",
     desc: "Headphones",
   },
@@ -26,14 +37,17 @@ const hardware = [
 
 const software = [
   {
+    icon: "apple",
     name: "Apple's Mail.app",
     desc: "Mail client",
   },
   {
+    icon: "github",
     name: "Ghostty",
     desc: "Terminal emulator",
   },
   {
+    icon: "zedindustries",
     name: "Zed",
     desc: "Code editor",
   },
@@ -48,7 +62,8 @@ const software = [
   {
     hardware.map((item) => (
       <div class="card repel">
-        <p>
+        <p class="cluster" style="--gutter: var(--space-2xs)">
+          <Icon name={item.icon} data-card-icon />
           <strong>{item.name}</strong>
         </p>
         <p>{item.desc}</p>
@@ -61,7 +76,8 @@ const software = [
   {
     software.map((item) => (
       <div class="card repel">
-        <p>
+        <p class="cluster" style="--gutter: var(--space-2xs)">
+          <Icon name={item.icon} data-card-icon />
           <strong>{item.name}</strong>
         </p>
         <p>{item.desc}</p>
