@@ -56,10 +56,10 @@ const contacts = [
       <h2>My contact information</h2>
     </figcaption>
 
-    <ul class="flow">
+    <ul class="flow list">
       {
         contacts.map(({ icon, name, show, link }) => (
-          <li class="card repel">
+          <li class="card repel" style="--gutter: var(--space-2xs)">
             <p class="cluster" style="--gutter: var(--space-2xs)">
               <Icon name={icon} data-card-icon />
               {name}

@@ -91,7 +91,7 @@ const cloud = [
     <ul class="flow">
       {
         hardware.map((item) => (
-          <li class="card repel">
+          <li class="card repel" style="--gutter: var(--space-2xs)">
             <p class="cluster" style="--gutter: var(--space-2xs)">
               <Icon aria-hidden name={item.icon} />
               {item.name}
@@ -116,7 +116,7 @@ const cloud = [
     <ul class="flow">
       {
         software.map((item) => (
-          <li class="card repel">
+          <li class="card repel" style="--gutter: var(--space-2xs)">
             <p class="cluster" style="--gutter: var(--space-2xs)">
               <Icon aria-hidden name={item.icon} />
               {item.name}
@@ -141,7 +141,7 @@ const cloud = [
     <ul class="flow">
       {
         cloud.map((item) => (
-          <li class="card repel">
+          <li class="card repel" style="--gutter: var(--space-2xs)">
             <p class="cluster" style="--gutter: var(--space-2xs)">
               <Icon name={item.icon} />
               {item.name}
