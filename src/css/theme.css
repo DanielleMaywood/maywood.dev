@@ -10,6 +10,13 @@
   --surface-2: var(--gray-1);
   --surface-3: var(--gray-2);
   --surface-4: var(--gray-3);
+
+  --code-bg: var(--surface-2);
+  --code-fg: var(--text-2);
+  --code-keyword: var(--red-9);
+  --code-string: var(--green-9);
+  --code-constant: var(--purple-9);
+  --code-variable: var(--blue-9);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,5 +32,12 @@
     --surface-2: var(--gray-10);
     --surface-3: var(--gray-9);
     --surface-4: var(--gray-8);
+
+  --code-bg: var(--surface-2);
+  --code-fg: var(--text-2);
+  --code-keyword: var(--red-4);
+  --code-string: var(--green-3);
+  --code-constant: var(--purple-2);
+  --code-variable: var(--blue-2);
   }
 }

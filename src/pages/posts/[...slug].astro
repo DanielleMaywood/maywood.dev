@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+
+dayjs.extend(localizedFormat);
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(post);
+---
+
+<BaseLayout title={post.data.title}>
+  <article class="flow" style="--flow-space: var(--space-s)">
+    <div class="flow" style="--flow-space: var(--space-2xs)">
+      <h2>{post.data.title}</h2>
+      {
+        post.data.date ? (
+          <p>
+            Published on {dayjs(post.data.date).format("LL")}.
+            <em>{remarkPluginFrontmatter.readingTime}.</em>
+          </p>
+        ) : (
+          <p>
+            Not yet published.
+            <em>{remarkPluginFrontmatter.readingTime}.</em>
+          </p>
+        )
+      }
+    </div>
+
+    <hr />
+
+    <Content />
+  </article>
+</BaseLayout>

@@ -38,6 +38,14 @@ main > * {
   --flow-space: var(--space-s-m);
 }
 
+a {
+  text-underline-offset: 4px;
+}
+
+code {
+  font-size: 0.9em;
+}
+
 /**
  * Blockquote
  **/
@@ -74,6 +82,7 @@ figure:has(ul) {
 
 figure:has(ul) > * {
   --flow-space: var(--space-xs);
+  list-style: none;
 }
 
 figure:has(ul) ul {
@@ -88,4 +97,9 @@ figure:has(ul) ul ::marker {
 
 figure:has(ul) ul[data-list-bare] > li {
   padding-inline-start: 0;
+}
+
+pre:has(code) {
+  padding: var(--space-xs);
+  border: 2px solid var(--surface-4);
 }

@@ -3,5 +3,6 @@
 @import "components/cluster.css";
 @import "components/container.css";
 @import "components/flow.css";
+@import "components/monospace.css";
 @import "components/prose.css";
 @import "components/repel.css";

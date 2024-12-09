@@ -5,8 +5,9 @@ import "../css/theme.css";
 import "../css/styles.css";
 import "../css/components.css";
 
-import Header from "../components/Header.astro";
 import type { HTMLAttributes } from "astro/types";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 type Props = HTMLAttributes<"main"> & {
   title?: string;
@@ -31,5 +32,7 @@ const name = "Danielle Maywood's Blog";
     <main class="flow" {...props}>
       <slot />
     </main>
+    <hr />
+    <Footer />
   </body>
 </html>
