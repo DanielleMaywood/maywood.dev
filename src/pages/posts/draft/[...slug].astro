@@ -1,15 +1,11 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection, render } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
-
-dayjs.extend(localizedFormat);
+import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("posts");
-  const published = posts.filter((post) => post.data.date !== undefined);
+  const published = posts.filter((post) => post.data.date === undefined);
 
   return published.map((post) => ({
     params: { slug: post.id },
@@ -26,7 +22,7 @@ const { Content, remarkPluginFrontmatter } = await render(post);
     <div class="flow" style="--flow-space: var(--space-2xs)">
       <h2>{post.data.title}</h2>
       <p>
-        Published on {dayjs(post.data.date).format("LL")}.
+        Not yet published.
         <em>{remarkPluginFrontmatter.readingTime}.</em>
       </p>
     </div>

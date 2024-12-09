@@ -46,6 +46,10 @@ code {
   font-size: 0.9em;
 }
 
+footer {
+  margin-block-end: var(--space-s);
+}
+
 /**
  * Blockquote
  **/

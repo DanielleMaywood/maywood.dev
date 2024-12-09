@@ -56,7 +56,10 @@ export default defineConfig({
 				ph: ["*"],
 			},
 		}),
-		sitemap(),
+		sitemap({
+			filter: (page) =>
+				!page.startsWith("https://daniellemaywood.uk/posts/draft/"),
+		}),
 		robotsTxt(),
 	],
 });
