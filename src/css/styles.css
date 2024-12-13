@@ -1,6 +1,9 @@
-body {
+html {
   background: var(--surface-1);
   color: var(--text-1);
+}
+
+body {
   font-size: var(--size-1);
   font-family: var(--font-system-ui);
   margin: 0;
